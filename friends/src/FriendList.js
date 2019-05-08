@@ -1,5 +1,9 @@
 import React from "react";
 
+import axios from 'axios';
+
+import Friend from './Friend';
+
 class FriendList extends React.Component {
   constructor() {
     super();
@@ -11,7 +15,7 @@ class FriendList extends React.Component {
   componentDidMount() {
     axios
       .get("http://localhost:5000/friends")
-      .then(res => this.setState({ friends: res.data }))
+      .then(res => this.setState({ friends: res.friends }))
       .catch(err => console.log(err));
   }
 
