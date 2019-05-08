@@ -1,11 +1,15 @@
 import React from 'react';
 
+import FriendList from './FriendList';
+import AddForm from './AddForm';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-    <h1>Hello Earthlings</h1>
+    <FriendList />
+    <AddForm />
     </div>
   );
 }

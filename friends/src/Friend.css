@@ -1,0 +1,13 @@
+.panels {
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 290px;
+  border-radius: 5px;
+  background-color: rgb(66, 138, 231);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+}
