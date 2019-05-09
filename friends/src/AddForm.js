@@ -37,21 +37,31 @@ handleChange= e =>{
       <div className="add-form">
         <h1>Add a friend!</h1>
 
-        <input type="text" 
+        <input 
+        type="text" 
+        name="name"
         placeholder="Name" 
+        onChange={this.handleChange}
+        value={this.state.friend.name}
         />
 
         <input 
         type="text" 
+        name="age"
         placeholder="Age" 
+        onChange={this.handleChange}
+        value={this.state.friend.age}
         />
 
         <input 
         type="text" 
+        name="email"
         placeholder="Email" 
+        onChange={this.handleChange}
+        value={this.state.friend.email}
         />
 
-        <button> Add </button>
+        <button onClick={this.postFriend}> Add </button>
       </div>
     );
   }

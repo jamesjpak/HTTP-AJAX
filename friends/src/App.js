@@ -11,7 +11,14 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      friends: []
+      friends: [],
+      postSuccessMessage: '',
+      postError: '',
+      putSuccessMessage: '',
+      putError: '',
+      deleteSuccessMessage: '',
+      deleteError: '',
+      showForm: 'post'
     };
   }
 
@@ -27,6 +34,9 @@ class App extends React.Component {
       .post("http://localhost:5000/friends", friend)
       .then(res => {
         console.log(res);
+        this.setState({
+          postSuccessMessage: res.data.successMessage
+        })
       })
       .catch(err => {
         console.log(err);
