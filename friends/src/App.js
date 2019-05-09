@@ -37,6 +37,7 @@ class App extends React.Component {
       .then(res => {
         console.log(res);
         this.setState({
+          friends: res.data,
           postSuccessMessage: res.data.successMessage
         })
       })
