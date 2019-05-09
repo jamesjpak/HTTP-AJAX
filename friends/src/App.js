@@ -7,6 +7,8 @@ import "./App.css";
 
 import axios from "axios";
 
+import { Route } from "react-router-dom";
+
 class App extends React.Component {
   constructor() {
     super();
@@ -29,9 +31,9 @@ class App extends React.Component {
       .catch(err => console.log(err));
   }
 
-  postFriend = friend => {
+  postFriend = newFriend => {
     axios
-      .post("http://localhost:5000/friends", friend)
+      .post("http://localhost:5000/friends", newFriend)
       .then(res => {
         console.log(res);
         this.setState({
@@ -39,15 +41,32 @@ class App extends React.Component {
         })
       })
       .catch(err => {
-        console.log(err);
+        console.log(err.response);
       });
   };
+
+
 
   render() {
     return (
       <div className="App">
-        <FriendList friends={this.state.friends} />
-        <AddForm friends={this.state.friends} postFriend={this.postFriend} />
+
+      <Route path="/" render={ (props) => 
+      <FriendList 
+      friends={this.state.friends} 
+      {...props} /> } 
+      />
+
+      <Route path="/" render={ (props) =>  
+      <AddForm 
+      friends={this.state.friends} 
+      postFriend={this.postFriend} 
+      postSuccessMessage={this.state.postSuccessMessage} 
+      postErrorMessage={this.state.postError} 
+      {...props} /> } 
+      />
+
+        
       </div>
     );
   }

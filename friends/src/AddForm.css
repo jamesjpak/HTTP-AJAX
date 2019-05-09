@@ -7,9 +7,13 @@
   transition: 0.3s;
   width: 290px;
   height: 50%;
-  border-radius: 5px;
-  background-color: rgb(66, 138, 231);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  background: linear-gradient(to bottom, #6c6eb2 0%, #181870 64%, #000028 100%);
+  border-radius: 8px;
+  border: 1px solid #424542;
+  font-family: 'Press Start 2P', sans-serif;
+  line-height: 50px;
+  color: white;
 
   display: flex;
   flex-direction: column;

@@ -14,7 +14,7 @@ class FriendList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='.center-layout'>
         {this.props.friends.map(friend => (
           <Friend friends={friend} />
         ))}

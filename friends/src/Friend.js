@@ -7,11 +7,11 @@ const Friend = props => {
   return (
     <div className="panels">
 
-      <div> Name: {props.friends.name} </div>
+      <div className="styles"> Name: {props.friends.name} </div>
 
-      <div> Age: {props.friends.age} </div>
+      <div className="styles"> Age: {props.friends.age} </div>
 
-      <div> Email: {props.friends.email} </div>
+      <div className="styles"> Email: {props.friends.email} </div>
     </div>
   );
 };
