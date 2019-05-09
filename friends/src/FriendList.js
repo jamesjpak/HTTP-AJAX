@@ -12,7 +12,6 @@ class FriendList extends React.Component {
     };
   }
 
-
   render() {
     return (
       <div>
