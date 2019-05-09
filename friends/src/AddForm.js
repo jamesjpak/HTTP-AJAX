@@ -1,12 +1,10 @@
 import React from "react";
 
-import axios from "axios";
-
 import "./AddForm.css";
 
 class AddForm extends React.Component {
+  
 
-    
   render() {
     return (
       <div className="add-form">

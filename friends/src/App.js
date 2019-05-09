@@ -5,13 +5,32 @@ import AddForm from './AddForm';
 
 import './App.css';
 
-function App() {
+import axios from 'axios';
+
+class App extends React.Component {
+constructor() {
+  super();
+  this.state = {
+    friends: []
+  }
+}
+
+componentDidMount() {
+  axios
+    .get("http://localhost:5000/friends")
+    .then(res => this.setState({ friends: res.data }))
+    .catch(err => console.log(err));
+
+}
+
+  render() {
   return (
     <div className="App">
-    <FriendList />
+    <FriendList friends={this.state.friends} />
     <AddForm />
     </div>
   );
+  }
 }
 
 export default App;
