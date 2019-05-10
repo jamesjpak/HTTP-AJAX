@@ -103,7 +103,11 @@ class App extends React.Component {
           <Route
             path="/update"
             render={props => (
-              <UpdateForm activeFriend={this.state.activeFriend} />
+              <UpdateForm 
+              activeFriend={this.state.activeFriend} 
+              updateFriend={this.updateFriend}
+              {...props}
+              />
             )}
           />
         </div>

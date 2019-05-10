@@ -6,7 +6,6 @@ class UpdateForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      friends: props.friends,
       friend: this.props.activeFriend
     };
   }
@@ -26,7 +25,7 @@ class UpdateForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    
+    this.props.updateFriend(this.state.friend)
   };
 
   render() {
@@ -39,7 +38,7 @@ class UpdateForm extends React.Component {
           name="name"
           placeholder="Name"
           onChange={this.handleChange}
-          
+          value={this.state.friend ? this.state.friend.name : ''}
         />
 
         <input
@@ -47,7 +46,7 @@ class UpdateForm extends React.Component {
           name="age"
           placeholder="Age"
           onChange={this.handleChange}
-          
+          value={this.state.friend ? this.state.friend.age : ''}
         />
 
         <input
@@ -55,7 +54,7 @@ class UpdateForm extends React.Component {
           name="email"
           placeholder="Email"
           onChange={this.handleChange}
-          
+          value={this.state.friend ? this.state.friend.email : ''}
         />
 
         <button onClick={this.handleSubmit} > Update </button>

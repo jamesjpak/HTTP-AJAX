@@ -13,7 +13,7 @@
 }
 
 .nav-bar {
-  background-color: rgba(219, 230, 229, 0.808);
+  background-color: rgb(219, 230, 229);
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -31,7 +31,7 @@
   margin-left: 10px;
   margin-right: 20px;
   text-decoration: none;
-  color:  rgba(219, 230, 229, 0.808);
+  color:  rgb(219, 230, 229);
   padding: 5px;
   background-color: red;
   border-radius: 10px;

@@ -1,25 +1,32 @@
 import React from "react";
 import './Friend.css';
 
-const Friend = props => {
+function Friend (props) {
+console.log(props.friend);
 
- //   const updateFriend = e => {
- //       e.prevent.Default();
- //       props.setActiveFriend(friend)
- //   } 
+   const updateFriend = e => {
+
+        props.setActiveFriend(props.friend);
+
+        props.history.push('/update');
+    } 
+
 
   return (
     <div className="panels">
 
-      <div className="styles"> Name: {props.friends.name} </div>
+      <div className="styles"> Name: {props.friend.name} </div>
 
-      <div className="styles"> Age: {props.friends.age} </div>
+      <div className="styles"> Age: {props.friend.age} </div>
 
-      <div className="styles"> Email: {props.friends.email} </div>
+      <div className="styles"> Email: {props.friend.email} </div>
 
-      <button onClick='' > Update Friend Info </button>
+      <button onClick={updateFriend} > Change Friend Info </button>
+
+      <button > DELETE </button>
     </div>
   );
-};
+}
+
 
 export default Friend;
