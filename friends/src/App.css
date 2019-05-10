@@ -1,7 +1,7 @@
 .App {
   padding-top: 60px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
 
@@ -31,7 +31,10 @@
   margin-left: 10px;
   margin-right: 20px;
   text-decoration: none;
-  color: #3E3459;
+  color:  rgba(219, 230, 229, 0.808);
+  padding: 5px;
+  background-color: red;
+  border-radius: 10px;
   
 }
 
@@ -40,5 +43,5 @@ a {
 }
 
 a:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
