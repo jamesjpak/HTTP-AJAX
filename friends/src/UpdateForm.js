@@ -2,19 +2,12 @@ import React from 'react';
 
 import './AddForm.css';
 
-import ErrorMessage from './ErrorMessage';
-import SuccessMessage from './SuccessMessage';
-
-class AddForm extends React.Component {
+class UpdateForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       friends: props.friends,
-      friend: {
-        name: "",
-        age: "",
-        email: ""
-      }
+      friend: this.props.activeFriend
     };
   }
 
@@ -30,24 +23,23 @@ class AddForm extends React.Component {
     }));
   };
 
-  postFriend = e => {
+  handleSubmit = e => {
     e.preventDefault();
 
-    this.props.postFriend(this.state.friend);
-
+    
   };
 
   render() {
     return (
-      <form onSubmit={this.postFriend} className="add-form">
-        <h1>Add a friend!</h1>
+      <form onSubmit={this.handleSubmit} className="add-form">
+        <h1>Update Friend</h1>
 
         <input
           type="text"
           name="name"
           placeholder="Name"
           onChange={this.handleChange}
-          value={this.state.friend.name}
+          
         />
 
         <input
@@ -55,7 +47,7 @@ class AddForm extends React.Component {
           name="age"
           placeholder="Age"
           onChange={this.handleChange}
-          value={this.state.friend.age}
+          
         />
 
         <input
@@ -63,21 +55,13 @@ class AddForm extends React.Component {
           name="email"
           placeholder="Email"
           onChange={this.handleChange}
-          value={this.state.friend.email}
+          
         />
 
-
-        {this.props.postErrorMessage ? (
-          <ErrorMessage message={this.props.postErrorMessage} />
-        ) : null}
-        {this.props.postSuccessMessage ? (
-          <SuccessMessage message={this.props.postSuccessMessage} />
-        ) : null}
-
-        <button onClick={this.postFriend} > Add </button>
+        <button onClick={this.handleSubmit} > Update </button>
       </form>
     );
   }
 }
 
-export default AddForm;
+export default UpdateForm;

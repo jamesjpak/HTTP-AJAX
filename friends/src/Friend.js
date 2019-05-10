@@ -3,6 +3,10 @@ import './Friend.css';
 
 const Friend = props => {
 
+ //   const updateFriend = e => {
+ //       e.prevent.Default();
+ //       props.setActiveFriend(friend)
+ //   } 
 
   return (
     <div className="panels">
@@ -12,6 +16,8 @@ const Friend = props => {
       <div className="styles"> Age: {props.friends.age} </div>
 
       <div className="styles"> Email: {props.friends.email} </div>
+
+      <button onClick='' > Update Friend Info </button>
     </div>
   );
 };

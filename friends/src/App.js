@@ -2,25 +2,27 @@ import React from "react";
 
 import FriendList from "./FriendList";
 import AddForm from "./AddForm";
+import UpdateForm from "./UpdateForm";
 
 import "./App.css";
 
 import axios from "axios";
 
-import { Route } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       friends: [],
-      postSuccessMessage: '',
-      postError: '',
-      putSuccessMessage: '',
-      putError: '',
-      deleteSuccessMessage: '',
-      deleteError: '',
-      showForm: 'post'
+      activeFriend: null,
+
+      postSuccessMessage: "",
+      postError: "",
+      putSuccessMessage: "",
+      putError: "",
+      deleteSuccessMessage: "",
+      deleteError: ""
     };
   }
 
@@ -39,35 +41,72 @@ class App extends React.Component {
         this.setState({
           friends: res.data,
           postSuccessMessage: res.data.successMessage
-        })
+        });
       })
       .catch(err => {
         console.log(err.response);
       });
   };
 
+  updateFriend = updatedFriend => {
+    axios
+      .put(`http://localhost:5000/friends/${updatedFriend.id}`, updatedFriend)
+      .then(res => {
+        console.log(res);
+        this.setState({
+          friends: res.data
+        });
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
+  };
 
+  setActiveFriend = friend => {
+    this.setState({ activeFriend: friend });
+  };
 
   render() {
     return (
-      <div className="App">
+      <div className='page-style'>
+        <nav className="nav-bar">
+          <NavLink to="/"> <div className='nav-link-style'>HOME</div> </NavLink>
+          <NavLink to="/add"> <div className='nav-link-style'>ADD</div> </NavLink>
+          <NavLink to="/update"> <div className='nav-link-style'>UPDATE</div> </NavLink>
+        </nav>
 
-      <Route path="/" render={ (props) => 
-      <FriendList 
-      friends={this.state.friends} 
-      {...props} /> } 
-      />
+        <div className="App">
+          <Route
+            path="/"
+            render={props => (
+              <FriendList
+                friends={this.state.friends}
+                setActiveFriend={this.setActiveFriend}
+                {...props}
+              />
+            )}
+          />
 
-      <Route path="/" render={ (props) =>  
-      <AddForm 
-      friends={this.state.friends} 
-      postFriend={this.postFriend} 
-      postSuccessMessage={this.state.postSuccessMessage} 
-      postErrorMessage={this.state.postError} 
-      {...props} /> } 
-      />
+          <Route
+            path="/add"
+            render={props => (
+              <AddForm
+                friends={this.state.friends}
+                postFriend={this.postFriend}
+                postSuccessMessage={this.state.postSuccessMessage}
+                postErrorMessage={this.state.postError}
+                {...props}
+              />
+            )}
+          />
 
-        
+          <Route
+            path="/update"
+            render={props => (
+              <UpdateForm activeFriend={this.state.activeFriend} />
+            )}
+          />
+        </div>
       </div>
     );
   }
