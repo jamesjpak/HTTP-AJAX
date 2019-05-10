@@ -53,9 +53,8 @@ class App extends React.Component {
       .put(`http://localhost:5000/friends/${updatedFriend.id}`, updatedFriend)
       .then(res => {
         console.log(res);
-        this.setState({
-          friends: res.data
-        });
+        this.setState({ friends: res.data });
+        this.props.history.push("/");
       })
       .catch(err => {
         console.log(err.response);

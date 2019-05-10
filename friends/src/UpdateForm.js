@@ -26,6 +26,8 @@ class UpdateForm extends React.Component {
     e.preventDefault();
 
     this.props.updateFriend(this.state.friend)
+
+    
   };
 
   render() {
